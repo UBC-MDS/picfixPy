@@ -31,10 +31,6 @@ How this project fit into the Python and R ecosystems
 
 #### Python ecosystem
 
-- scikit-image, 
-
-R ecosystem
-
-- magick package in R offers an overwhelming amount of functionality, we want to offer a light-weight, extremely easy to use alternative to the magick package in R, allow users to quickly touch up and enhance their images without defaulting to these cumbersome library.
+[OpenCV](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html) provides Python with an immersive package for complex image processing. However, what if you just need a quick, easy solution for basic image enhancement without having to dig into substantial documentation and implementations? Our proposal is to offer a simple alternative, allowing users to have the ability to enhance images quickly without the overhead of heavy library resources.
 
 
