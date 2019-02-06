@@ -14,7 +14,7 @@
 
 Image enhancement is typically done with a full-scale editing software such as Adobe Photoshop or GIMP, but what if we just want to quickly touch up an image during prototyping in a programming environment? 
 
-`picfixPy` allows users to quickly enhance images in an integrated development environment (IDE) (e.g. Jupyter notebook, RStudio) without powering up an image editing software. Users can quickly adjust the sharpness, contrast, and vibrance of .png images, by simply calling the corresponding functions. This package currently offers three essential image enhancement functions, and we hope to implement additional features in the near future. 
+`picfixPy` allows users to quickly enhance images in an integrated development environment (IDE) (e.g. Jupyter notebook, PyCharm) without powering up an image editing software. Users can quickly adjust the sharpness, contrast, and vibrance of .png images, by simply calling the corresponding functions. This package currently offers three essential image enhancement functions, and we hope to implement additional features in the near future. 
 
 #### Functions
 
