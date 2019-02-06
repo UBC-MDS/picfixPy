@@ -1,7 +1,6 @@
-# PicFixPy
+# picfixPy
 
-
-#### DSCI 524 Collaborative Software Development Project  
+#### DSCI-524 Collaborative Software Development Project  
   
 #### Team Members
 
@@ -11,26 +10,25 @@
 | George J. J. Wu     | GeorgeJJW           |
 | Mani Kohli          | ksm45               |
 
+#### Project Overview
 
-#### Project Overview:
+Image enhancement is typically done with a full-scale editing software such as Adobe Photoshop or GIMP, but what if we just want to quickly touch up an image during prototyping in a programming environment? 
 
-PicFix will allows you to quickly touch-up images in an IDE (i.e. Jupyter notebook, rstudio) without powering up a full-scale image processing software(i.e. ADOBE, MS). Be able to quickly apply contrast, vibrance, and a smart sharpen to photos quickly and swiftly! Simple to use, no fuss, we can simply use the following functions. Full blown photo editing libraries and softwares can be heavy weight, we just want to quickly touch up and fix up an image in the IDE without exiting the IDE.
+`picfixPy` allows users to quickly enhance images in an integrated development environment (IDE) (e.g. Jupyter notebook, RStudio) without powering up an image editing software. Users can quickly adjust the sharpness, contrast, and vibrance of .png images, by simply calling the corresponding functions. This package currently offers three essential image enhancement functions, and we hope to implement additional features in the near future. 
 
-#### Functions:
+#### Functions
 
 ###### sharpen
-Given an image, darken the edges to get a sharpened effect, returns an image.
+Given a .png image, darken the edges to get a sharpened effect, returns a .png image.
 
 ###### contrast
-Given an image, make dark pixels much darker, and bright pixels slightly darker, returns an image.
+Given a .png image, make dark pixels much darker, and bright pixels slightly darker, returns a .png image.
 
 ###### vibrance
-Given an image, increase the overall intensity and saturation by increasing more for colours that were less saturated to begin with, returns an image.
+Given a .png image, increase the overall intensity and saturation by increasing more for colours that were less saturated to begin with, returns a .png image.
 
-How this project fit into the Python and R ecosystems
+#### Fitting into the Python ecosystem
 
-#### Python ecosystem
-
-[OpenCV](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html) provides Python with an immersive package for complex image processing. However, what if you just need a quick, easy solution for basic image enhancement without having to dig into substantial documentation and implementations? Our proposal is to offer a simple alternative, allowing users to have the ability to enhance images quickly without the overhead of heavy library resources.
+[OpenCV](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html) provides Python with an immersive package for complex image processing. However, even for basic image enhancements, users typically still have to dig into a substantial amount of documentation and implementation details. This project offers a simple alternative, allowing users to have the ability to enhance images quickly during prototyping without the overhead of heavy library resources.
 
 
