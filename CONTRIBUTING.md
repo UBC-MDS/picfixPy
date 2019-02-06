@@ -15,3 +15,5 @@ Some things that will increase the chance that your pull request is accepted:
 - Follow [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide.
 
 - Write [good commit messages](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+
+Adapted from [Software Carpentry](https://github.com/swcarpentry/r-novice-inflammation/blob/gh-pages/CONTRIBUTING.md) and [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails/blob/master/CONTRIBUTING.md)'s contributing documents.
