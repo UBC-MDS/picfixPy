@@ -19,7 +19,7 @@ PicFix will allows you to quickly touch-up images in an IDE (i.e. Jupyter notebo
 #### Functions:
 
 ###### sharpen
-Given an image, increase the weight of the edges, (via convolution), returns an image.
+Given an image, darken the edges to get a sharpened effect, returns an image.
 
 ###### contrast
 Given an image, make dark pixels much darker, and bright pixels slightly darker, returns an image.
