@@ -1,4 +1,4 @@
-# DSCI524_Mili_George_Mani
+# DSCI524 PicFixPy
 DSCI 524 Collaborative Software Development Project  
   
 ## Team Members
