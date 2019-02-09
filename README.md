@@ -1,4 +1,4 @@
-# PicFixPy
+# picfixPy
 #### DSCI-524 Collaborative Software Development Project  
 
   
