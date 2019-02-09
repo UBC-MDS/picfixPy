@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 # PicFixPy
 DSCI 524 Collaborative Software Development Project  
-=======
-# picfixPy
+
 
 #### DSCI-524 Collaborative Software Development Project  
->>>>>>> upstream/master
+
   
 #### Team Members
 
