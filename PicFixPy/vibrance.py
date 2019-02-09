@@ -5,12 +5,12 @@ def vibrance(img, intensity, output):
     Input
     ============
 
-    img -- string of path for an image file in .jpg, .jpeg, .png, .tiff format
+    img -- string of path for an image file in .png format
     intensity -- integer in range [-10,10] to specificy intensity of vibrance applied to image
     output -- string path of output image
 
     Returns
     ============
 
-    an image file in .jpg, .jpeg, .png, .tiff format with specified vibrance in specified output path
+    an image file in .png format with specified vibrance in specified output path
     '''
