@@ -15,6 +15,6 @@ def sharpen(imput_img, intensity, output_img):
     
     Example
     ============
-    sharpen("../img/image.png", 1.2, "../img/sharpened_image.png")
+    sharpen("../img/image.png", 2, "../img/sharpened_image.png")
     
     '''
