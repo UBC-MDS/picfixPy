@@ -9,7 +9,7 @@
 import numpy as np
 import pytest
 import skimage.io
-from PicFixPy import sharpen
+from picfixPy import sharpen
 
 # generate input image
 
