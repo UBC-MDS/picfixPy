@@ -1,0 +1,6 @@
+# git ignore file
+
+
+*.DS_Store
+*.Rhistory
+*.ipynb_checkpoints
