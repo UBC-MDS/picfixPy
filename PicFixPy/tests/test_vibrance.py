@@ -28,37 +28,19 @@ def test_vibrance1():
     assert np.array_equal(testImg1, output), "The image returned should be identical with 0 intensity."
 
 
-# test 2: test if -10 intensity returns a greyscale image, it should.
+# test 2: test if 10 intensity returns a very vibrant/saturated image, it should.
 # testImg2: color image
 testImg2 = np.array([[[ 10,  20,  40], [ 20,  40,  10], [ 40,  10,  20]],
                       [[ 40,  80, 160], [ 80, 160,  40], [160,  40,  80]],
                       [[ 60, 120, 240], [120, 240,  60], [240,  60, 120]]], dtype = "uint8")
 
-# testImg1_output: expected greyscale image
-testImg2_output = np.array([[[ 19,  19,  19], [ 31,  31,  31], [ 20,  20,  20]],
-                         [[ 77,  77,  77], [123, 123, 123], [ 80,  80,  80]],
-                         [[115, 115, 115], [184, 184, 184], [121, 121, 121]]], dtype = "uint8")
-
-def test_vibrance2():
-    vibrance("PixFixPy/test/test_img/vibrance/testImg2.png", -10 ,
-             "PixFixPy/test/test_img/vibrance/testImg2_output.png")
-    output = skimage.io.imread("PixFixPy/test/test_img/vibrance/testImg2_output.png")[:, :, :3]
-    assert np.array_equal(output, test_img2), "-10 intensity should make this a greyscale image."
-
-
-# test 3: test if 10 intensity returns a very vibrant/saturated image, it should.
-# testImg3: color image
-testImg3 = np.array([[[ 10,  20,  40], [ 20,  40,  10], [ 40,  10,  20]],
-                      [[ 40,  80, 160], [ 80, 160,  40], [160,  40,  80]],
-                      [[ 60, 120, 240], [120, 240,  60], [240,  60, 120]]], dtype = "uint8")
-
-# testImg3_output: expected saturated/vibrant image
-testImg3_output = np.array([[[ 100,  120,  140], [ 120,  140,  110], [ 140,  110,  120]],
+# testImg2_output: expected saturated/vibrant image
+testImg2_output = np.array([[[ 100,  120,  140], [ 120,  140,  110], [ 140,  110,  120]],
                       [[ 140,  180, 250], [ 180, 250,  140], [250,  140,  180]],
                       [[ 160, 220, 240], [220, 240,  160], [240,  160, 220]]], dtype = "uint8")
 
-def test_vibrance3():
-    vibrance("PixFixPy/test/test_img/vibrance/testImg3.png", 10 ,
-             "PixFixPy/test/test_img/vibrance/testImg3_output.png")
-    output = skimage.io.imread("PixFixPy/test/test_img/vibrance/testImg3_output.png")[:, :, :3]
+def test_vibrance2():
+    vibrance("PixFixPy/test/test_img/vibrance/testImg2.png", 10 ,
+             "PixFixPy/test/test_img/vibrance/testImg2_output.png")
+    output = skimage.io.imread("PixFixPy/test/test_img/vibrance/testImg2_output.png")[:, :, :3]
     assert np.array_equal(output, test_img2), "10 intensity should make this a very saturated image."
