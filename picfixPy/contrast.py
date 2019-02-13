@@ -1,7 +1,6 @@
 # dependencies
 import numpy as np
 import skimage.io
-import sys
 
 def contrast(input_img, intensity=5, display=False, output_img=''):
     
