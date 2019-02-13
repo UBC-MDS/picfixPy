@@ -31,4 +31,6 @@ Given a .png image, increase the overall intensity and saturation by increasing 
 
 [OpenCV](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html) provides Python with an immersive package for complex image processing. However, even for basic image enhancements, users typically still have to dig into a substantial amount of documentation and implementation details. This project offers a simple alternative, allowing users to have the ability to enhance images quickly during prototyping without the overhead of heavy library resources.
 
+#### Please input the following to your command line:
+`pip install git+https://github.com/UBC-MDS/picfixPy.git`
 
