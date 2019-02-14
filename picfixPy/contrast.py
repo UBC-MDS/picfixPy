@@ -34,7 +34,7 @@ def contrast(input_img, intensity=5, display=False, output_img=''):
         raise
     
     except OSError:
-        print("Please provide the path to an image file.")
+        print("Please provide an image file.")
         raise
     
     except FileExistsError:
