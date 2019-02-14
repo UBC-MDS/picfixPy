@@ -3,74 +3,78 @@
 # contrast(input_img, intensity, output_img) adjusts the contrast of an image
 # Input: input_img: string, path for the input image file
 #        intensity: int, intensity of contrast enhancement, between 0 and 10, defaults to 5.
+#        display: bool, display the enhanced image in an IDE, defaults to False.
 #        output_img: string, path for the output image file
 # Output: an image file at the specified output path
 
 import numpy as np
 import pytest
 import skimage.io
-from picfixPy import contrast
+from picfixPy.contrast import contrast
 
 # generate input image
 
-test_img1 = np.array([[[4,77,245], [44,44,32] ,[60,70,80]],
-                      [[6,66,43], [33,55,63], [22,56,70]],
-                      [[4,55,66], [65,77,43], [33,45,22]]], dtype = 'uint8')
+test_img1 = np.array([[[1,55,255], [2,55,255] ,[3,100,5]],
+                      [[1,55,255], [2,55,255], [3,100,5]],
+                      [[1,55,255], [2,55,255], [3,100,5]]], dtype = 'uint8')
+
+skimage.io.imsave("picfixPy/test/test_img/contrast/test_img1.png", 
+                  test_img1, check_contrast=False)
 
 # generate output image when intensity is 5
 
-expected_img1 = np.array([[[4,77,245], [44,44,32] ,[60,70,80]],
-                         [[6,66,43], [33,55,63], [22,56,70]],
-                         [[4,55,66], [65,77,43], [33,45,22]]], dtype = 'uint8')
+expected_img1 = np.array([[[0,7,255], [0,7,255] ,[0,81,0]],
+                         [[0,7,255], [0,7,255], [0,81,0]],
+                         [[0,7,255], [0,7,255], [0,81,0]]], dtype='uint8')
 
 # test for implementation correctness
 
 def test_zero_intensity():
-    contrast("pixfixPy/test/test_img/contrast/test_img1.png", 
+    contrast("picfixPy/test/test_img/contrast/test_img1.png", 
              0,
-             "pixfixPy/test/test_img/contrast/contrast.png")
-    output_img = skimage.io.imread("pixfixPy/test/test_img/contrast/contrast.png")[:, :, :3]
+             False,
+             "picfixPy/test/test_img/contrast/contrast.png")
+    output_img = skimage.io.imread("picfixPy/test/test_img/contrast/contrast.png")
     assert np.array_equal(output_img, test_img1), "Images should be indentical with 0 intensity."
 
 def test_correct_contrast():
-    contrast("pixfixPy/test/test_img/contrast/test_img1.png", 
+    contrast("picfixPy/test/test_img/contrast/test_img1.png", 
              5,
-             "pixfixPy/test/test_img/contrast/expected_img1.png")
-    output_img = skimage.io.imread("pixfixPy/test/test_img/contrast/testImg1_output.png")[:, :, :3]
+             False,
+             "picfixPy/test/test_img/contrast/expected_img1.png")
+    output_img = skimage.io.imread("picfixPy/test/test_img/contrast/expected_img1.png")
     assert np.array_equal(output_img, expected_img1), "The image returned should be identical with 0 intensity."    
 
 # test for exception handling
 
 def test_input_string():
     with pytest.raises(AttributeError):
-        contrast(888, 5, "pixfixPy/test/test_img/contrast/contrast.png")
+        contrast(888, 5, False, "picfixPy/test/test_img/contrast/contrast.png")
 
 def test_valid_intensity():
-    with pytest.raises(AttributeError):
-        contrast("pixfixPy/test/test_img/contrast/test_img1.png", 
+    with pytest.raises(ValueError):
+        contrast("picfixPy/test/test_img/contrast/test_img1.png", 
                  -10.5, 
-                "pixfixPy/test/test_img/contrast/contrast.png")
+                 False,
+                 "picfixPy/test/test_img/contrast/contrast.png")
 
 def test_input_nonimage():
     with pytest.raises(OSError):
-        contrast("pixfixPy/test/test_img/contrast/test_img1.R", 
+        contrast("picfixPy/test/test_img/contrast/test_img1.R", 
                  5, 
-                "pixfixPy/test/test_img/contrast/contrast.png")
-
-def test_output_nonimage():
-    with pytest.raises(OSError):
-        contrast("pixfixPy/test/test_img/contrast/test_img1.png", 
-                 5, 
-                "pixfixPy/test/test_img/contrast/contrast.pdf")
+                 False,
+                 "picfixPy/test/test_img/contrast/contrast.png")
 
 def test_input_exist():
-    with pytest.raises(FileExistsError):
-        contrast("pixfixPy/test/test_img/ffxiv/namazu.png", 
+    with pytest.raises(FileNotFoundError):
+        contrast("picfixPy/test/test_img/ffxiv/namazu.png", 
                  5, 
-                "pixfixPy/test/test_img/contrast/contrast.png")
+                 False,
+                 "picfixPy/test/test_img/contrast/contrast.png")
 
 def test_output_path_valid():
     with pytest.raises(FileNotFoundError):
-        contrast("pixfixPy/test/test_img/contrast/test_img1.png", 
+        contrast("picfixPy/test/test_img/contrast/test_img1.png", 
                  5, 
-                "@( * O * )@")    
+                 False,
+                 "beasttribe/namazu/dailies.png")    

@@ -1,4 +1,4 @@
-def sharpen(input_img, intensity=5, output_img):
+def sharpen(input_img, intensity=5, output_img=''):
     
     '''
     Sharpens an image, given the intensity specificication
