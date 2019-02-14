@@ -8,71 +8,75 @@
 
 import numpy as np
 import pytest
-import skimage.io
+from skimage.io import imread, imsave, imshow
 from picfixPy.vibrance import vibrance
 
 # generate input image
 
-test_img1 = np.array([[[4,77,245], [44,44,32] ,[60,70,80]],
+test_img1 = np.array([[[ 4, 77,245], [44,44,32] ,[60,70,80]],
                       [[6,66,43], [33,55,63], [22,56,70]],
                       [[4,55,66], [65,77,43], [33,45,22]]], dtype = 'uint8')
 
-skimage.io.imsave("picfixPy/test/test_img/vibrance/test_img1.png", test_img1)
+
+imsave("picfixPy/test/test_img/vibrance/test_img1.png", test_img1)
 
 # generate expected output image with intensity = 10
 
-expected_img1 = np.array([[[ 100,  120,  140], [ 120,  140,  110], [ 140,  110,  120]],
-                         [[ 140,  180, 250], [ 180, 250,  140], [250,  140,  180]],
-                         [[ 160, 220, 240], [220, 240,  160], [240,  160, 220]]], dtype = "uint8")
+expected_img1 = np.array([[[  0,  74, 245], [ 44,  44,  19], [ 40,  60,  80]],
+                          [[  0,  66,  40], [  2,  46,  63], [  0,  49,  70]],
+                          [[  0,  54,  66], [ 52,  77,   8], [ 21,  45,   0]]], dtype = "uint8")
+
+# generate expected output image with intensity = -10, should be greyscale
+
+expected_img2 = np.array([[[245, 245, 245], [ 44,  44,  44], [ 80,  80,  80]],
+                          [[ 66,  66,  66], [ 63,  63,  63], [ 70,  70,  70]],
+                          [[ 66,  66,  66], [ 77,  77,  77], [ 45,  45,  45]]], dtype= "uint8")
 
 
-def test_zero_intensity():
-    vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-             0,
-             "picfixPy/test/test_img/vibrance/vibrance.png")
-    output_img = skimage.io.imread("picfixPy/test/test_img/vibrance/vibrance.png")[:, :, :3]
-    assert np.array_equal(output_img, test_img1), "Images should be indentical with 0 intensity."
 
-
-def test_correct_vibrance():
+def test_high_vibrance():
     vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
              10,
+             False,
              "picfixPy/test/test_img/vibrance/expected_img1.png")
-    output_img = skimage.io.imread("picfixPy/test/test_img/vibrance/expected_img1.png")[:, :, :3]
+    output_img = imread("picfixPy/test/test_img/vibrance/expected_img1.png")[:, :, :3]
     assert np.array_equal(output_img, expected_img1), "The image returned should be identical with 10 intensity."
+    
+def test_low_vibrance(): #should be grey
+    vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
+             -10,
+             False,
+             "picfixPy/test/test_img/vibrance/expected_img1.png")
+    output_img = imread("picfixPy/test/test_img/vibrance/expected_img1.png")[:, :, :3]
+    assert np.array_equal(output_img, expected_img2), "The image returned should be in greyscale and identical with -10 intensity."
 
 # test for exception handling
 
 def test_input_string():
     with pytest.raises(AttributeError):
-        vibrance(888, 5, "picfixPy/test/test_img/vibrance/vibrance.png")
+        vibrance(888, 5, False, "picfixPy/test/test_img/vibrance/vibrance.png")
 
 def test_valid_intensity():
-    with pytest.raises(AttributeError):
+    with pytest.raises(ValueError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 -10.5,
+                 -10.5, False, 
                 "picfixPy/test/test_img/vibrance/vibrance.png")
 
 def test_input_nonimage():
     with pytest.raises(OSError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.R",
-                 5,
+                 5, False, 
                 "picfixPy/test/test_img/vibrance/vibrance.png")
-
-def test_output_nonimage():
-    with pytest.raises(OSError):
-        vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 5,
-                "picfixPy/test/test_img/vibrance/vibrance.pdf")
 
 def test_input_exist():
-    with pytest.raises(FileExistsError):
+    with pytest.raises(FileNotFoundError):
         vibrance("picfixPy/test/test_img/ffxiv/namazu.png",
-                 5,
+                 5, False, 
                 "picfixPy/test/test_img/vibrance/vibrance.png")
+
 
 def test_output_path_valid():
     with pytest.raises(FileNotFoundError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 5,
-                "@( * O * )@")
+                 5, False, 
+                "beasttribe/namazu/dailies.png")
