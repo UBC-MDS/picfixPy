@@ -1,4 +1,4 @@
-def vibrance(input_img, intensity=0, display = False, output = ''):
+def vibrance(input_img, intensity=5, display=False, output_img=''):
 
     '''
     Increase or decrease the vibrance of an image, given the intensity specificication.
