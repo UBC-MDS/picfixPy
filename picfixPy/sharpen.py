@@ -1,7 +1,12 @@
-def sharpen(input_img, intensity=5, output_img=''):
+# dependencies
+import numpy as np
+import skimage.io
+
+
+def sharpen(input_img, intensity=5, display=False, output_img=''):
     
     '''
-    Sharpens an image, given the intensity specificication
+    Sharpens an image with given intensity specificication
     
     
     Input
@@ -14,7 +19,7 @@ def sharpen(input_img, intensity=5, output_img=''):
     
     Returns
     ============
-    an image file in .png format with adjusted sharpening level in specified output path
+    an image file in .png format with adjusted sharpening intensity in specified output path
     
     Example
     ============
