@@ -35,7 +35,7 @@ Given a .png image, make dark pixels much darker, and bright pixels slightly dar
 Given a .png image, increase the overall intensity and saturation by increasing more for colours that were less saturated to begin with, returns a .png image.  
 
 ![](https://github.com/UBC-MDS/picfixPy/blob/master/picfixPy/test/test_img/vibrance_output.png)  
-`vibrance('input.png', 4, False, 'vibrance_output.png')`
+`vibrance('input.png', 3, False, 'vibrance_output.png')`
 
 
 #### Fitting into the Python ecosystem
