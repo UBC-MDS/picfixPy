@@ -42,7 +42,7 @@ def test_high_vibrance():
     output_img = imread("picfixPy/test/test_img/vibrance/expected_img1.png")[:, :, :3]
     assert np.array_equal(output_img, expected_img1), "The image returned should be identical with 10 intensity."
     
-def test_low_vibrance(): #should be gre
+def test_low_vibrance(): #should be grey
     vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
              -10,
              False,
