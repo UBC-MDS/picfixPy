@@ -63,7 +63,7 @@ vibrance('input.png', 4, False, 'vibrance_output.png')
 Arguments:
 
 - input_img: path to an input image
-- intensity: level of contrast enhancement, between -10 and 10, defaults to 5.
+- intensity: level of vibrance enhancement, between -10 and 10, defaults to 5.
 - display: print image to console if `True`, defaults to `False`.
 - output_img: path to save the output image
 
