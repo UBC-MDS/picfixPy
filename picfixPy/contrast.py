@@ -5,19 +5,20 @@ import skimage.io
 def contrast(input_img, intensity=5, display=False, output_img=''):
     
     '''
-    Adjust the contrast of an image, given the intensity specificication
+    Adjust the contrast of an image, given the intensity specificication.
+    Works by making dark pixels much darker, and lighter pixels only slightly darker.
     
     Input
     ============
-    input_img -- string of path for an image file in .png format
+    input_img -- string of path for an image file.
     intensity -- integer in range [0,10] to specificy intensity of contrast enhancement applied to the image,
                  defaults to 5.
     display -- bool. If True, output will be displayed. Defaults to False.
-    output_img -- string path for output .png image with adjusted contrast 
+    output_img -- string path for output image with adjusted contrast.
     
     Returns
     ============
-    an image file in .png format with adjusted contrast in specified output path
+    an image file with adjusted contrast in specified output path.
     
     Example
     ============
