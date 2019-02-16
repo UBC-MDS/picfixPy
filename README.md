@@ -34,3 +34,7 @@ Given a .png image, increase the overall intensity and saturation by increasing 
 #### Please input the following to your command line:
 `pip install git+https://github.com/UBC-MDS/picfixPy.git`
 
+To update:
+
+`pip install --upgrade git+https://github.com/UBC-MDS/picfixPy.git`
+
