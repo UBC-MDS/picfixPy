@@ -1,11 +1,11 @@
 # This script tests the sharpen() function.
 
 # sharpen(input_img, intensity, display, output_img) Sharpens an image with given intensity specification
-# Input: input_img -- string of path for an image file in .jpg, .jpeg, .png format
+# Input: input_img -- string of path for an image file.
 #        intensity -- integer in range [0,10] to specificy intensity of sharpening applied to the image, defaults to 5.
 #        display -- bool. If True, output will be displayed. Defaults to False.
-#        output_img -- string path for output of corresponding .jpg, .jpeg, .png image with adjusted sharpening
-# Output: an image file in .jpg, .jpeg, .png format with adjusted sharpening intensity in specified output path
+#        output_img -- string path for output of the corresponding image with adjusted sharpening
+# Output: an image file with adjusted sharpness in specified output path
 
 import numpy as np
 import pytest

@@ -2,7 +2,8 @@
 
 # vibrance(input_img, intensity, output_img) adjusts the vibrance of an image
 # Input: input_img: string, path for the input image file
-#        intensity: int, intensity of vibrance enhancement, between 0 and 10, defaults to 5.
+#        intensity: int, intensity of vibrance enhancement, between -10 and 10, defaults to 5.
+#        display -- bool. If True, output will be displayed. Defaults to False.
 #        output_img: string, path for the output image file
 # Output: an image file at the specified output path
 

@@ -7,17 +7,19 @@ def vibrance(input_img, intensity=5, display=False, output_img=''):
 
     '''
     Increase or decrease the vibrance of an image, given the intensity specificication.
+    Works by increasing the overall colour intensity and saturation of the image, more so
+    for colours that are less saturated. 
     
     Input
     ============
-    img -- string. Path for an image file in .jpg, .jpeg, .png, .tiff format.
+    img -- string. Path for an image file.
     intensity -- integer/float in range [-10,10]. Specificies intensity of vibrance applied to image.
     display -- bool. If True, output image will display
     output -- string path of output image
     
     Returns
     ============
-    an image file in .jpg, .jpeg, .png, .tiff format with specified vibrance in specified output path
+    an image file with specified vibrance in specified output path
     '''
     
     try: 

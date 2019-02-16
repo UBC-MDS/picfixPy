@@ -6,20 +6,21 @@ import skimage.io
 def sharpen(input_img, intensity=5, display=False, output_img=''):
     
     '''
-    Sharpens an image with given intensity specification
-    
+    Sharpens an image with given intensity specification.
+    This function will use the unsharp mask approach to sharpen images.
+    Works by enhancing the edges of an image.
     
     Input
     ============
-    input_img -- string of path for an image file in .jpg, .jpeg, .png format
+    input_img -- string of path for an image file.
     intensity -- integer in range [0,10] to specificy intensity of sharpening applied to the image,
                  defaults to 5.
     display -- bool. If True, output will be displayed. Defaults to False.
-    output_img -- string path for output of corresponding .jpg, .jpeg, .png image with adjusted sharpening 
+    output_img -- string path for output of an image with adjusted sharpening 
     
     Returns
     ============
-    an image file in .jpg, .jpeg, .png format with adjusted sharpening intensity in specified output path
+    an image file with adjusted sharpening intensity in specified output path
     
     Example
     ============

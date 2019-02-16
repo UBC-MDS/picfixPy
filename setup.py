@@ -14,7 +14,7 @@ setup(
     install_requires=[
         "numpy",
         "matplotlib",
-        'skimage',
+        'scikit-image',
         'colorsys'
         "pytest",
 
