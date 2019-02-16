@@ -27,7 +27,7 @@ Given a .png image, darken the edges to get a sharpened effect, returns a .png i
 ###### contrast
 Given a .png image, make dark pixels much darker, and bright pixels slightly darker, returns a .png image.  
 
-![]('https://github.com/UBC-MDS/picfixPy/blob/master/picfixPy/test/test_img/contrast_output.png')  
+![]('https://raw.githubusercontent.com/UBC-MDS/picfixPy/master/picfixPy/test/test_img/contrast_output.png')  
 `contrast('input.png', 4, False, 'contrast_output.png')`  
 
 
