@@ -13,5 +13,5 @@ setup(
     url = 'https://github.com/UBC-MDS/picfixPy',
     packages=['picfixPy'],
     license='LICENSE.md',
-    long_description=open('README.txt').read(),
+    long_description=open('README.md').read(),
 )
