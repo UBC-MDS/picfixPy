@@ -43,7 +43,7 @@ def test_correct_contrast():
              False,
              "picfixPy/test/test_img/contrast/expected_img1.png")
     output_img = skimage.io.imread("picfixPy/test/test_img/contrast/expected_img1.png")
-    assert np.array_equal(output_img, expected_img1), "The image returned should be identical with 0 intensity."    
+    assert np.array_equal(output_img, expected_img1), "The image should be with adjusted contrast with an intensity of 5."    
 
 # test for exception handling
 
