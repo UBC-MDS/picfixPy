@@ -22,20 +22,20 @@ To use:
 Given a .png image, darken the edges to get a sharpened effect, returns a .png image.  
 
 ![]('picfixPy/test/test_img/sharpen_output.png')  
-`sharpen('img.png', 4, False, 'sharpen_output.png')`
+`sharpen('input.png', 4, False, 'sharpen_output.png')`
 
 ###### contrast
 Given a .png image, make dark pixels much darker, and bright pixels slightly darker, returns a .png image.  
 
 ![]('picfixPy/test/test_img/contrast_output.png')  
-`contrast('img.png', 4, False, 'contrast_output.png')`  
+`contrast('input.png', 4, False, 'contrast_output.png')`  
 
 
 ###### vibrance
 Given a .png image, increase the overall intensity and saturation by increasing more for colours that were less saturated to begin with, returns a .png image.  
 
 ![]('picfixPy/test/test_img/vibrance_output.png')  
-`vibrance('img.png', 4, False, 'vibrance_output.png')`
+`vibrance('input.png', 4, False, 'vibrance_output.png')`
 
 
 #### Fitting into the Python ecosystem
