@@ -83,7 +83,7 @@ Arguments:
 
 ### Tests and test coverage
 
-![test_coverage](doc/img/coverage.png)
+![test_coverage](/picfixPy/test/test_img/coverage.png)
 
 ### Fitting into the Python ecosystem
 
