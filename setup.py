@@ -7,7 +7,7 @@ setup(
     author='Miliban Keyim, George J. J. Wu, Mani Kohli',
     author_email = 'milibankeyim@gmail.com, mskcan@gmail.com, georgewujia@gmail.com',
     url = 'https://github.com/UBC-MDS/picfixPy',
-    packages=['picfixpy',],
+    packages=['picfixPy',],
     license='LICENSE.md',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
