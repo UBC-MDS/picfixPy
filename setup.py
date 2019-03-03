@@ -15,7 +15,7 @@ setup(
         "numpy",
         "matplotlib",
         'scikit-image',
-        'colorsys'
+        'colorsys',
         "pytest",
 
 ],
