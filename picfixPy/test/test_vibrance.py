@@ -33,7 +33,7 @@ expected_img2 = np.array([[[245, 245, 245], [ 44,  44,  44], [ 80,  80,  80]],
                           [[ 66,  66,  66], [ 63,  63,  63], [ 70,  70,  70]],
                           [[ 66,  66,  66], [ 77,  77,  77], [ 45,  45,  45]]], dtype= "uint8")
 
-
+# test for implementation correctness
 
 def test_high_vibrance():
     vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
@@ -60,24 +60,42 @@ def test_input_string():
 def test_valid_intensity():
     with pytest.raises(ValueError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 -10.5, False, 
-                "picfixPy/test/test_img/vibrance/vibrance.png")
-
-def test_input_nonimage():
-    with pytest.raises(OSError):
-        vibrance("picfixPy/test/test_img/vibrance/test_img1.R",
-                 5, False, 
+                 -10.5, 
+                 False, 
                 "picfixPy/test/test_img/vibrance/vibrance.png")
 
 def test_input_exist():
     with pytest.raises(FileNotFoundError):
         vibrance("picfixPy/test/test_img/ffxiv/namazu.png",
-                 5, False, 
+                 5, 
+                 False, 
                 "picfixPy/test/test_img/vibrance/vibrance.png")
 
+def test_input_nonimage():
+    with pytest.raises(OSError):
+        vibrance("picfixPy/test/test_img/vibrance/test_img1.java",
+                 5, 
+                 False, 
+                "picfixPy/test/test_img/vibrance/vibrance.png")
+
+def test_display_image():
+    try:
+        vibrance("picfixPy/test/test_img/vibrance/test_img1.png", 
+                 5, 
+                 True)
+    except Exception: # pragma: no cover
+        raise pytest.fail("Cannot display image, something went wrong.")
+
+def test_output_nonimage():
+    with pytest.raises(ValueError):
+        vibrance("picfixPy/test/test_img/vibrance/test_img1.png", 
+                 5, 
+                 False,
+                 "picfixPy/test/test_img/vibrance/test_img2.java")
 
 def test_output_path_valid():
     with pytest.raises(FileNotFoundError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 5, False, 
+                 5, 
+                 False, 
                 "beasttribe/namazu/dailies.png")

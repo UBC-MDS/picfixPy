@@ -29,18 +29,14 @@ def vibrance(input_img, intensity=5, display=False, output_img=''):
         print("Please use a string to specify the file path for an input image.")
         raise
     
-    except OSError:
-        print("Please provide an image file.")
-        raise
-    
     except FileNotFoundError:
-        print("Provided image path does not exist.")
-            
-    except Exception as error:
-        print("Cannot load image, something went wrong :(")
-        print(error)
+        print("Cannot find image file.")
         raise
-    
+
+    except OSError:
+        print("Please provide a valid image file.")
+        raise
+            
     # validate intensity level
     if (intensity < -10 or intensity > 10):
         raise ValueError("Intensity level must be between -10 and 10.")
@@ -54,7 +50,6 @@ def vibrance(input_img, intensity=5, display=False, output_img=''):
     # load input image
     vibrance_image = np.ndarray((H,W,D), dtype = 'uint8')
 
-    
     # lift pixel value restrictions between 0 and 255 temporarily
     for i in range(len(image)):
         for j in range(len(image[i])):
@@ -69,16 +64,11 @@ def vibrance(input_img, intensity=5, display=False, output_img=''):
             s = hsv[1]
             v = hsv[2]
 
-            # Increasing saturation of desaturated pixels more than saturated pixels:
-            if s > 1.0:
-                s = 0.8
-                
+            # Increasing saturation of desaturated pixels more than saturated pixels:                
             s = s * (1 + intensity/10)
             
             if s > 1.0:
-                s = 1.0
-            if s < 0.0:
-                s = 0.0
+                s = 1.0 
             else:
                 s = s
 
@@ -95,15 +85,10 @@ def vibrance(input_img, intensity=5, display=False, output_img=''):
         try: 
             imsave(output_img, vibrance_image)
         
-        except OSError:
-            print("Please output an image.")
-            raise
-        
         except FileNotFoundError:
             print("The file path for the output image is not valid.")
             raise
 
-        except Exception as error:
-            print("Cannot save image to file, something went wrong :(")
-            print(error)
+        except ValueError:
+            print("Please specify a valid output image type.")
             raise

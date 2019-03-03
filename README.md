@@ -80,7 +80,10 @@ Arguments:
 - numpy
 - matplotlib
 - scikit-image
-- colorsys
+
+### Tests and test coverage
+
+![test_coverage](/picfixPy/test/test_img/coverage.png)
 
 ### Fitting into the Python ecosystem
 
