@@ -55,18 +55,34 @@ def test_valid_intensity():
                 False,
                 "picfixPy/test/test_img/sharpen/sharpen.png")
 
+def test_input_exist():
+    with pytest.raises(FileNotFoundError):
+        sharpen("picfixPy/test/test_img/ffxiv/namazu.png", 
+                5,
+                False, 
+                "picfixPy/test/test_img/sharpen/sharpen.png")
+
 def test_input_nonimage():
     with pytest.raises(OSError):
-        sharpen("picfixPy/test/test_img/sharpen/test_img1.R", 
+        sharpen("picfixPy/test/test_img/sharpen/test_img1.java", 
                 5, 
                 False,
                 "picfixPy/test/test_img/sharpen/sharpen.png")
 
-def test_input_exist():
-    with pytest.raises(FileNotFoundError):
-        sharpen("picfixPy/test/test_img/ffxiv/namazu.png", 
-                5, 
-                "picfixPy/test/test_img/sharpen/sharpen.png")
+def test_display_image():
+    try:
+        sharpen("picfixPy/test/test_img/sharpen/test_img1.png", 
+                 5, 
+                 True)
+    except Exception: # pragma: no cover
+        raise pytest.fail("Cannot display image, something went wrong.")
+
+def test_output_nonimage():
+    with pytest.raises(ValueError):
+        sharpen("picfixPy/test/test_img/sharpen/test_img1.png", 
+                 5, 
+                 False,
+                 "picfixPy/test/test_img/sharpen/test_img2.java") 
 
 def test_output_path_valid():
     with pytest.raises(FileNotFoundError):

@@ -58,19 +58,35 @@ def test_valid_intensity():
                  False,
                  "picfixPy/test/test_img/contrast/contrast.png")
 
-def test_input_nonimage():
-    with pytest.raises(OSError):
-        contrast("picfixPy/test/test_img/contrast/test_img1.R", 
-                 5, 
-                 False,
-                 "picfixPy/test/test_img/contrast/contrast.png")
-
 def test_input_exist():
     with pytest.raises(FileNotFoundError):
         contrast("picfixPy/test/test_img/ffxiv/namazu.png", 
                  5, 
                  False,
                  "picfixPy/test/test_img/contrast/contrast.png")
+
+def test_input_nonimage():
+    with pytest.raises(OSError):
+        contrast("picfixPy/test/test_img/contrast/test_img1.java", 
+                 5, 
+                 False,
+                 "picfixPy/test/test_img/contrast/contrast.png")
+
+def test_display_image():
+    try:
+        contrast("picfixPy/test/test_img/contrast/test_img1.png", 
+                 5, 
+                 True)
+    except Exception: # pragma: no cover
+        raise pytest.fail("Cannot display image, something went wrong.")  
+
+def test_output_nonimage():
+    with pytest.raises(ValueError):
+        contrast("picfixPy/test/test_img/contrast/test_img1.png", 
+                 5, 
+                 False,
+                 "picfixPy/test/test_img/contrast/test_img2.java")
+
 
 def test_output_path_valid():
     with pytest.raises(FileNotFoundError):

@@ -33,17 +33,13 @@ def contrast(input_img, intensity=5, display=False, output_img=''):
     except AttributeError:
         print("Please use a string to specify the file path for an input image.")
         raise
-    
-    except OSError:
-        print("Please provide an image file.")
-        raise
-    
+
     except FileNotFoundError:
         print("Cannot find image file.")
-            
-    except Exception as error:
-        print("Cannot load image, something went wrong :(")
-        print(error)
+        raise    
+    
+    except OSError:
+        print("Please provide a valid image file.")
         raise
 
     # validate intensity level
@@ -84,17 +80,12 @@ def contrast(input_img, intensity=5, display=False, output_img=''):
         try: 
             skimage.io.imsave(output_img, enhanced_img, check_contrast=False)
         
-        except OSError:
-            print("Please output an image.")
-            raise
-        
         except FileNotFoundError:
-            print("The file path for the output image is not valid.")
+            print("The file path for the output image does not exist.")
             raise
 
-        except Exception as error:
-            print("Cannot save image to file, something went wrong :(")
-            print(error)
+        except ValueError:
+            print("Please specify a valid output image type.")
             raise
 
         
