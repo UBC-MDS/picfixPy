@@ -23,9 +23,10 @@ imsave("picfixPy/test/test_img/vibrance/test_img1.png", test_img1)
 
 # generate expected output image with intensity = 10
 
-expected_img1 = np.array([[[  0,  74, 245], [ 44,  44,  19], [ 40,  60,  80]],
-                          [[  0,  66,  40], [  2,  46,  63], [  0,  49,  70]],
+expected_img1 = np.array([[[  0,  74, 245], [ 43,  44,  19], [ 40,  60,  80]],
+                          [[  0,  66,  40], [  2,  47,  63], [  0,  49,  70]],
                           [[  0,  54,  66], [ 52,  77,   8], [ 21,  45,   0]]], dtype = "uint8")
+                        
 
 # generate expected output image with intensity = -10, should be greyscale
 
@@ -42,7 +43,7 @@ def test_high_vibrance():
              "picfixPy/test/test_img/vibrance/expected_img1.png")
     output_img = imread("picfixPy/test/test_img/vibrance/expected_img1.png")[:, :, :3]
     assert np.array_equal(output_img, expected_img1), "The image returned should be identical with 10 intensity."
-    
+
 def test_low_vibrance(): #should be grey
     vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
              -10,
@@ -60,42 +61,42 @@ def test_input_string():
 def test_valid_intensity():
     with pytest.raises(ValueError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 -10.5, 
-                 False, 
+                 -10.5,
+                 False,
                 "picfixPy/test/test_img/vibrance/vibrance.png")
 
 def test_input_exist():
     with pytest.raises(FileNotFoundError):
         vibrance("picfixPy/test/test_img/ffxiv/namazu.png",
-                 5, 
-                 False, 
+                 5,
+                 False,
                 "picfixPy/test/test_img/vibrance/vibrance.png")
 
 def test_input_nonimage():
     with pytest.raises(OSError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.java",
-                 5, 
-                 False, 
+                 5,
+                 False,
                 "picfixPy/test/test_img/vibrance/vibrance.png")
 
 def test_display_image():
     try:
-        vibrance("picfixPy/test/test_img/vibrance/test_img1.png", 
-                 5, 
+        vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
+                 5,
                  True)
     except Exception: # pragma: no cover
         raise pytest.fail("Cannot display image, something went wrong.")
 
 def test_output_nonimage():
     with pytest.raises(ValueError):
-        vibrance("picfixPy/test/test_img/vibrance/test_img1.png", 
-                 5, 
+        vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
+                 5,
                  False,
                  "picfixPy/test/test_img/vibrance/test_img2.java")
 
 def test_output_path_valid():
     with pytest.raises(FileNotFoundError):
         vibrance("picfixPy/test/test_img/vibrance/test_img1.png",
-                 5, 
-                 False, 
+                 5,
+                 False,
                 "beasttribe/namazu/dailies.png")
