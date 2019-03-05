@@ -1,0 +1,13 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install git+https://github.com/UBC-MDS/picfixPy.git
+  - pip install -U pytest
+  - pip install numpy
+  - pip install matplotlib
+  - pip install scikit-image
+# command to run tests
+script:
+  - pytest
