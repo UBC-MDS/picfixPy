@@ -1,7 +1,7 @@
 # picfixPy
 #### A DSCI-524 collaborative software development project  
 
-[![Build Status](https://travis-ci.org/UBC-MDS/picfixPy.svg?branch=master)](https://travis-ci.org/UBC-MDS/picfixPy)
+[![Build Status](https://travis-ci.org/UBC-MDS/picfixPy.svg?branch=master)](https://travis-ci.org/UBC-MDS/picfixPy) [![codecov](https://codecov.io/gh/UBC-MDS/picfixPy/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/picfixPy)
 
 ### Project Overview
 
