@@ -18,6 +18,6 @@ addons:
 script:
   - pytest --cov=picfixPy
 
-after_sucess:
+after_success:
   - codecov
   
